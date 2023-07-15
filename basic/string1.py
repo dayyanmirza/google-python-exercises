@@ -24,8 +24,11 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-  # +++your code here+++
-  return
+  if count >= 10:
+    return "Number of donuts: many"
+  else:                                 # When a function does not have a return statement it, it implicitly returns --> None.
+    return f"Number of donuts: {count}" # Use return to return the output as a value, instead of using print to display the output.
+                                        
 
 
 # B. both_ends
@@ -34,9 +37,13 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-  # +++your code here+++
-  return
-
+  if len(s) < 2:
+    return "" 
+  else:
+    slen = len(s) - 1
+    return s[0] + s[1] + s[slen - 1] + s[slen] 
+  
+  
 
 # C. fix_start
 # Given a string s, return a string
@@ -48,8 +55,10 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-  # +++your code here+++
-  return
+  replaced_string = s.replace(s[0], '*') 
+
+  for x in s:
+    return s[0] + replaced_string[1:]
 
 
 # D. MixUp
@@ -60,8 +69,12 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-  # +++your code here+++
-  return
+  first_a = a[0] + a[1]
+  first_b = b[0] + b[1]
+
+  mix_a = a.replace(first_a, first_b) # replaces first two letter in a with the first two letters in b.
+  mix_b = b.replace(first_b, first_a) # replaces first two letters in b with the first two letters in a.
+  return mix_a + ' ' + mix_b  # the ' ' adds a space in the middle when you concatenate the strings.
 
 
 # Provided simple test() function used in main() to print
